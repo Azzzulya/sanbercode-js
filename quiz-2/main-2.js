@@ -21,9 +21,6 @@
             this.list.push({name: this.newName});
             this.newName= ' ';
           } 
-          else{
-            alert("isi dulu ya")
-          }
         },
         deleteName (data) {
           let result = confirm("Are you sure you want to delete?");
@@ -39,6 +36,7 @@
         updateName(data, desc){
           this.list[data].name = desc 
           this.newName= ' ';
+          this.updateSubmit = false;
         }
 
   
