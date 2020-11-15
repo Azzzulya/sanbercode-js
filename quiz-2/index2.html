@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Vue Task</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0"></script>
+  </head>
+  <body>
+    <div id="app">
+        <h1>Staff Name</h1>
+        <ul>
+          <li v-for="(nama, index) in list" :key="index">  
+            <span>{{ nama.name }} </span>
+            <div>
+              <button @click="editName(index, nama.name)" >Edit</button>
+              <button @click="deleteName(index)"> Delete</button>
+            </div>
+          </li>
+        </ul>
+        <form @submit.prevent="addName">
+          <input type="hidden" v-model="idName">
+          <input  v-model="newName" placeholder="Type Hero Name Here" />
+          <button type="submmit" v-if="updateSubmit == false">Add </button>
+          <button type="button" v-else="updateSubmit == false" @click="updateName(idName, newName)">Update</button>
+        </form>
+       
+    </div>
+    <script src="main-2.js"></script>
+  </body>
+</html>
