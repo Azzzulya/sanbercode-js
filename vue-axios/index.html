@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Quiz 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <h1>Staff Name</h1>
+        <ul>
+          <li v-for="(user, index) in list" :key="user.id" style="margin-top: 10px;;">  
+            <span>{{ user.name }} </span>
+            <div>
+              <button @click="editName(user)" >Edit</button>
+              <button @click="deleteName(user)">Delete</button>
+            </div>
+          </li>
+        </ul>
+        
+        <form @submit.prevent="addName">
+          <input type="hidden" v-model="form.id">
+          <input  v-model="form.name" placeholder="Type Hero Name Here" />
+          <button type="submmit" v-if="updateSubmit == false">Add </button>
+          <button type="button" v-else="updateSubmit == false" @click="updateName(form)">Update</button>
+        </form>
+       
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
